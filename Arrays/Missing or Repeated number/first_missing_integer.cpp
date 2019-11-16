@@ -1,4 +1,5 @@
 /*
+    Problem:
     First Missing Integer:
 
     Given an unsorted integer array, find the first missing positive integer.
@@ -10,7 +11,8 @@
     Your algorithm should run in O(n) time and use constant space.
 */
 
-/* Solution:
+/*  
+    Solution:
     Time: O(N)
     Space: O(1)
     Approach:

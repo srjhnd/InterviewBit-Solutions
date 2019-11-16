@@ -7,7 +7,6 @@
 */
 
 /* Solution:
-    N/3 repeating
     O(NlogN): time
     O(1): space
 
