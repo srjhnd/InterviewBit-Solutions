@@ -34,18 +34,30 @@
 
         Finally check to see if any element is missing in the sequence and return 
         the missing number.
-*/                         
+*/         
 
-int Solution::firstMissingPositive(vector<int> &A) {
-
-    for (int i = 0; i < A.size(); i++) {
-        while (A[i] > 0 && A[i] <= A.size() && A[A[i] - 1] != A[i]) {
-            swap(A[i], A[A[i]-1]);
+public class Solution {
+    public int firstMissingPositive(int[] arr) {
+        int idx = 0;
+        int num = 1;
+        for (idx = 0; idx < arr.length; idx++) {
+            while (arr[idx] > 0 && arr[idx] <= arr.length && arr[idx] != arr[arr[idx]-1]) {
+                /* swapping */
+                int tmp = arr[idx];
+                arr[idx] = arr[arr[idx]-1];
+                arr[tmp-1] = tmp;                    
+            }
         }
+
+        for (idx = 0; idx < arr.length; idx++) {
+            if (arr[idx] != idx+1)
+                return idx+1;
+        }
+
+        /* 
+           this statement is only executed if the arr contains all the elements in ascending order
+           eg. final arr = [1, 2, 3, 4, 5] 
+        */
+        return arr.length+1;
     }
-    
-     for(int i = 0; i < A.size(); i++)
-        if(A[i] != i + 1)
-            return i + 1;
-    return A.size()+1;
 }
